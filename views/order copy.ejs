@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+
+        <!-- fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+        
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <section class="hero-section d-flex justify-content-center align-items-center">
+
+        <!-- <div class="section-overlay"></div> -->
+  
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3D405B" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"></path></svg> -->
+          <div class="container-xxl pt-5 mt-5">
+            <div class="row">
+                <div class="col-lg-5 col-12 mb-lg-5 mb-4">
+                    <form action="/order" method="POST" class="custom-form membership-form shadow-lg" role="form">
+                        <h4 class="text-white mb-4">Form Pemesanan</h4>
+
+                           <div class="form-floating">
+                              <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control" placeholder="Nama Lengkap" required="">
+                              <label for="nama_lengkap">Alamat Pengambilan</label>
+                          </div>
+  
+                          <div class="form-floating">
+                              <input type="text" name="username" id="username" class="form-control" placeholder="Nama Lengkap" required="">
+                              <label for="username">Pilih Jenis Paket</label>
+                          </div>
+
+                          <div class="form-floating">
+                              <!-- <input type="text" name="username" id="username" class="form-control" placeholder="Nama Lengkap" required=""> -->
+
+                              <select id="product" name="jenis_paket" class="form-select form-control" aria-label="Default select example">
+                                  <option value=""></option>
+                                </select>
+                                <label for="product">Pilih Jenis Paket :</label>
+                          </div>
+                          
+                          <div class="form-floating">
+                              <input type="email" name="alamat_email" id="alamat_email" class="form-control" placeholder="Email@gmail.com" required="">
+                              <label for="alamat_email">Alamat Email</label>
+                          </div>
+  
+                          <!-- <div class="form-floating">
+                              <input type="text" name="nomor_telepon" id="nomor_telepon" class="form-control" placeholder="0811" required="">
+                              <label for="nomor_telepon">Nomor Whats App / No HP</label>
+                          </div>  -->
+  
+                            <div class="form-floating">
+                                <textarea class="form-control" id="catatan" name="catatan" placeholder="Describe message here"></textarea>
+                                
+                                <label for="floatingTextarea"> Catatan Tambahan</label>
+                            </div>
+  
+                            <button type="submit" class="form-control">Submit Order</button>
+                        </div>
+                    </form>
+                </div>
+  
+ 
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section section-padding" id="section_2">
+        <div class="container">
+            <div class="row">
+    
+                <div class="col-lg-12 col-12 text-center">
+                    <h2 class="mb-lg-5 mb-4">About Dolphin Laundry</h2>
+                </div>
+    
+                <div class="col-lg-5 col-12 me-auto mb-4 mb-lg-0">
+                    <h3 class="mb-3">Sejarah Dolphin Laundry</h3>
+    
+                    <p>Dolphin Laundry & Dry Cleaning didirikan pada <strong>Tahun 2010</strong>, Awalnya bisnis laundry ini dimulai dengan 5 pegawai dan dengan jenis paket yang terbatas.</p>
+    
+                    <p>Seiring berjalannya waktu, Dolphin Laundry semakin berkembang dari usaha yang kecil menjadi besar dan kini Dolphin Laundry mengikuti era digital dengan membuat website bisnis sendiri.</p>
+                </div>
+    
+                <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-0">
+                    <div class="member-block">
+                        <div class="member-block-image-wrap">
+                            <img src="/img/members/portrait-young-handsome-businessman-wearing-suit-standing-with-crossed-arms-with-isolated-studio-white-background.jpg" class="member-block-image img-fluid" alt="">
+    
+                            <ul class="social-icon">
+                                <li class="social-icon-item">
+                                    <a href="#" class="social-icon-link bi-twitter"></a>
+                                </li>
+    
+                                <li class="social-icon-item">
+                                    <a href="#" class="social-icon-link bi-whatsapp"></a>
+                                </li>
+                            </ul>
+                        </div>
+    
+                        <div class="member-block-info d-flex align-items-center">
+                            <h4>Adit</h4>
+    
+                            <p class="ms-auto">Founder</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-lg-3 col-md-6 col-12">
+    
+                </div>
+    
+            </div>
+        </div>
+    </section>
+
+    
+
+    <%- include('partials/header.ejs'); %>
+
+    <script>
+        // Ambil data produk dari backend dan tampilkan dalam select option
+        fetch('/jenis_paket')
+          .then(response => response.json())
+          .then(data => {
+            const select = document.getElementById('product');
+            data.forEach(product => {
+              const option = document.createElement('option');
+            //   option.value = product.id_jenispaket;
+              option.value = product.nama_jenis; // Menggabungkan dua value
+              option.text = product.nama_jenis + ' - ' + product.klasifikasi_paket + ' - Rp.' + product.harga_jenis +'/kg'; 
+              select.appendChild(option);
+            });
+          })
+          .catch(error => console.error('Error fetching products:', error));
+      </script>
+    
+</body>
+</html>

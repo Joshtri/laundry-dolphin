@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+
+        <!-- fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+        
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <%- include('partials/header.ejs'); %>
+        <div class="container mb-5 pb-5" style="margin-top: 220px;">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <form action="/order" method="POST" class="custom-form membership-form shadow-lg" role="form">
+                        <h4 class="text-white mb-4">Form Pemesanan</h4>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control" placeholder="Nama Lengkap" required="">
+                            <label for="nama_lengkap">Alamat Pengambilan</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <select id="product" name="jenis_paket" class="form-control form-select" aria-label="Default select example">
+                                <option value=""></option>
+                            </select>
+                            <label for="product">Pilih Jenis Paket :</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <select id="" name="" class="form-control form-select" aria-label="Default select example">
+                                <option value=""></option>
+                            </select>
+                            <label for="product">Pilih Jenis Parfum :</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <select id="" name="" class="form-control form-select" aria-label="Default select example">
+                                <option value=""></option>
+                            </select>
+                            <label for="product">Pilih Jenis Pembayaran :</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="email" name="alamat_email" id="alamat_email" class="form-control" placeholder="Email@gmail.com" required="">
+                            <label for="alamat_email">Alamat Email</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" id="catatan" name="catatan" placeholder="Describe message here"></textarea>
+                            <label for="floatingTextarea">Catatan Tambahan</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary form-control">Submit Order</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    <script>
+        // Ambil data produk dari backend dan tampilkan dalam select option
+        fetch('/jenis_paket')
+          .then(response => response.json())
+          .then(data => {
+            const select = document.getElementById('product');
+            data.forEach(product => {
+              const option = document.createElement('option');
+            //   option.value = product.id_jenispaket;
+              option.value = product.nama_jenis; // Menggabungkan dua value
+              option.text = product.nama_jenis + ' - ' + product.klasifikasi_paket + ' - Rp.' + product.harga_jenis +'/kg'; 
+              select.appendChild(option);
+            });
+          })
+          .catch(error => console.error('Error fetching products:', error));
+      </script>
+
+
+<!-- FOOTER DSINI -->
+<%-include('partials/footer')%>
+    
+</body>
+</html>

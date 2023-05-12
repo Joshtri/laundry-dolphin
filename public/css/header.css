@@ -1,0 +1,29 @@
+.dolphin_logo_header{
+    width: 40px;
+    height: 40px;
+}
+
+/* .navbar- */
+
+.header-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: #023f6c;
+
+}
+
+.bg-body-dolphin-primary{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    /* padding: 1rem 2%; */
+    background-color: #5db5e2;
+    border-bottom: 1px solid #f8e321;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+  
