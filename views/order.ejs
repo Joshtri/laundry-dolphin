@@ -18,43 +18,54 @@
     <%- include('partials/header.ejs'); %>
         <div class="container mb-5 pb-5" style="margin-top: 220px;">
             <div class="row justify-content-center">
+              <div class="text-center mb-4 pb-4">
+                <h3>Selamat datang <%= username %></h3>
+                <h6>Silahkan melakukan pemesanan :)</h6>  
+              </div>
                 <div class="col-lg-6">
-                    <form action="/order" method="POST" class="custom-form membership-form shadow-lg" role="form">
+                  
+                    <% if (errorMessage) { %>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                          <p class="text-center fw-bold"><%= errorMessage %></p>
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                      <% } %>
+                    <form action="/order_laundry" method="POST" class="custom-form membership-form shadow-lg" role="form">
                         <h4 class="text-white mb-4">Form Pemesanan</h4>
 
                         <div class="form-floating mb-3">
-                            <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control" placeholder="Nama Lengkap" required="">
-                            <label for="nama_lengkap">Alamat Pengambilan</label>
+                            <input type="text" name="alamat_pengambilan" id="alamat_pengambilan" class="form-control" placeholder="Nama Lengkap" required="">
+                            <label for="alamat_pengambilan">Alamat Pengambilan</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <select id="product" name="jenis_paket" class="form-control form-select" aria-label="Default select example">
+                            <select id="product" name="jenis_paket" class="form-control form-select" aria-label="Default select example" required="">
                                 <option value=""></option>
                             </select>
                             <label for="product">Pilih Jenis Paket :</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <select id="" name="" class="form-control form-select" aria-label="Default select example">
+                            <select id="jenis_parfum" name="nama_parfum" class="form-control form-select" aria-label="Default select example" required="">
                                 <option value=""></option>
                             </select>
                             <label for="product">Pilih Jenis Parfum :</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <select id="" name="" class="form-control form-select" aria-label="Default select example">
+                                <select id="jenis_pembayaran" name="metode_pembayaran" class="form-control form-select" aria-label="Default select example" required="">
                                 <option value=""></option>
                             </select>
-                            <label for="product">Pilih Jenis Pembayaran :</label>
+                            <label for="jenis_pembayaran">Pilih Jenis Pembayaran :</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="email" name="alamat_email" id="alamat_email" class="form-control" placeholder="Email@gmail.com" required="">
-                            <label for="alamat_email">Alamat Email</label>
+                            <input type="email" name="email_costumer" id="email_costumer" class="form-control" placeholder="Email@gmail.com" required="">
+                            <label for="email_costumer">Alamat Email</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <textarea class="form-control" id="catatan" name="catatan" placeholder="Describe message here"></textarea>
+                            <textarea class="form-control" id="catatan" name="catatan" placeholder="Describe message here" required=""></textarea>
                             <label for="floatingTextarea">Catatan Tambahan</label>
                         </div>
 
@@ -83,6 +94,41 @@
           })
           .catch(error => console.error('Error fetching products:', error));
       </script>
+
+    <script>
+        // Ambil data produk dari backend dan tampilkan dalam select option
+        fetch('/jenis_pembayaran')
+          .then(response => response.json())
+          .then(data => {
+            const select = document.getElementById('jenis_pembayaran');
+            data.forEach(metode_bayar => {
+              const option = document.createElement('option');
+            //   option.value = product.id_jenispaket;
+              option.value = metode_bayar.jenis_pembayaran; // Menggabungkan dua value
+              option.text = metode_bayar.jenis_pembayaran;
+              select.appendChild(option);
+            });
+          })
+          .catch(error => console.error('Error fetching products:', error));
+    </script>
+
+    <script>
+        // Ambil data produk dari backend dan tampilkan dalam select option
+        fetch('/jenis_parfum')
+          .then(response => response.json())
+          .then(data => {
+            const select = document.getElementById('jenis_parfum');
+            data.forEach(nama_parfum => {
+              const option = document.createElement('option');
+            //   option.value = product.id_jenispaket;
+              option.value = nama_parfum.nama_jenis_parfum; // Menggabungkan dua value
+              option.text = nama_parfum.nama_jenis_parfum;
+              select.appendChild(option);
+            });
+          })
+          .catch(error => console.error('Error fetching products:', error));
+    </script>
+
 
 
 <!-- FOOTER DSINI -->

@@ -4,12 +4,23 @@ const dotenv = require("dotenv");
 const morgan = require('morgan'); 
 const bodyparser = require('body-parser');
 const mysql = require('./server/database/connection').connect;
+const session = require('express-session')
 // const cors = require('cors');
 
 const favicon = require('serve-favicon');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
+
+// Middleware session
+app.use(session({
+    secret: 'secret-key',
+    resave: true,
+    saveUninitialized: true,
+    cookie: { maxAge: 240000 } // Session expires in 1 minute (adjust as needed)
+  }));
+  
+  
 
 
 // Parse incoming request bodies
@@ -41,7 +52,8 @@ app.use('/',
  require('./server/routes/loginregist')
  );
 
-app.use('/', require('./server/routes/order'))
+app.use('/', require('./server/routes/order'),
+require('./server/routes/riwayat'));
 
 
 

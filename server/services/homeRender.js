@@ -1,9 +1,13 @@
 var connection = require('../database/connection')
 
 exports.headerRender = (req,res) => {
-    res.render('header');
 
+    res.render('header',{
+      profile: null
+    });
 }
+
+
 
 exports.homeRender = (req,res) => {
     
@@ -21,6 +25,8 @@ exports.homeRender = (req,res) => {
       //console.log(results); //💢just to make sure the code is works!💢
       res.render("home", {
         jenisPaket: results,
+        data_identity: myData,
+        id_user: req.session.id_user
       });
     }
   });
