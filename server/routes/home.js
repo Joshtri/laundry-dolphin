@@ -44,7 +44,7 @@ router.post("/logins", (req, res) => {
 
         <li><a class="dropdown-item" href="#">Notifikasi</a></li>
 
-        <li><a class="dropdown-item" href="/order">Order</a></li>
+        <li><a class="dropdown-item" href="/logins">Order</a></li>
 
         <li><a class="dropdown-item" href="/logout">Log Out</a></li>
     </ul>
@@ -69,7 +69,7 @@ router.post("/logins", (req, res) => {
             data_identity:myData,
             id_user: req.session.id_user,
             errorMessage: null,
-            username:username
+            username:username 
 
           });
         } else {

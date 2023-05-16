@@ -71,7 +71,11 @@ router.post("/order_laundry", (req, res) => {
       throw err;
     } else if (!err) {
       // res.send("JADI NIH");
-      res.render("order", { errorMessage: "Order Telah Terkirim" });
+      res.render("order",
+       { 
+          errorMessage: "Order Telah Terkirim",
+          username:req.body.username
+      });
     }
   });
 });
