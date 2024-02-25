@@ -12,7 +12,7 @@ const orderServices = require("../services/orderRender");
 const orderController = require("../controllers/orderController");
 
 const bcrypt = require("bcrypt");
-const db = require("../database/connection");
+// const db = require("../database/connection");
 const saltRounds = 10;
 
 // Middleware session
@@ -26,7 +26,7 @@ router.use(session({
 
 //DEFAULT
 router.get("/header", homeServices.headerRender);
-router.get("/home", homeServices.homeRender);
+router.get("/", homeServices.homeRender);
 
 
 
@@ -53,53 +53,53 @@ router.post("/logins", (req, res) => {
   
 
   // Lakukan validasi login dan periksa kecocokan dengan data di database
-  db.query(
-    "SELECT * FROM user WHERE username = ? AND password = ?",
-    [username, password],
-    (error, results) => {
-      if (error) {
-        // Handle error
-      } else {
-        if (results.length > 0) {
-          // Jika login berhasil, simpan ID pengguna ke sesi
-          req.session.id_user = results[0].id;
+  // db.query(
+  //   "SELECT * FROM user WHERE username = ? AND password = ?",
+  //   [username, password],
+  //   (error, results) => {
+  //     if (error) {
+  //       // Handle error
+  //     } else {
+  //       if (results.length > 0) {
+  //         // Jika login berhasil, simpan ID pengguna ke sesi
+  //         req.session.id_user = results[0].id;
 
-          res.render("order",
-          {
-            data_identity:myData,
-            id_user: req.session.id_user,
-            errorMessage: null,
-            username:username 
+  //         res.render("order",
+  //         {
+  //           data_identity:myData,
+  //           id_user: req.session.id_user,
+  //           errorMessage: null,
+  //           username:username 
 
-          });
-        } else {
-          // Jika login gagal, arahkan kembali ke halaman login dengan pesan error
-          res.redirect("/home");
-        }
-      }
-    }
-  );
+  //         });
+  //       } else {
+  //         // Jika login gagal, arahkan kembali ke halaman login dengan pesan error
+  //         res.redirect("/home");
+  //       }
+  //     }
+  //   }
+  // );
 });
 
 router.post("/signup", async (req, res) => {
-  const { username, password, nama_lengkap, alamat_email, nomor_telepon } =
-    req.body;
+  // const { username, password, nama_lengkap, alamat_email, nomor_telepon } =
+  //   req.body;
 
-  // Insert user into database
-  const query =
-    "INSERT INTO user (username, password, nama_lengkap, alamat_email, nomor_telepon) VALUES (?, ?, ?, ?, ?)";
-  db.query(
-    query,
-    [username, password, nama_lengkap, alamat_email, nomor_telepon],
-    (error, results, fields) => {
-      if (error) {
-        console.error(error);
-        res.status(500).send("Internal Server Error");
-      } else {
-        res.status(200).send("Sign up successful");
-      }
-    }
-  );
+  // // Insert user into database
+  // const query =
+  //   "INSERT INTO user (username, password, nama_lengkap, alamat_email, nomor_telepon) VALUES (?, ?, ?, ?, ?)";
+  // db.query(
+  //   query,
+  //   [username, password, nama_lengkap, alamat_email, nomor_telepon],
+  //   (error, results, fields) => {
+  //     if (error) {
+  //       console.error(error);
+  //       res.status(500).send("Internal Server Error");
+  //     } else {
+  //       res.status(200).send("Sign up successful");
+  //     }
+  //   }
+  // );
 });
 
 

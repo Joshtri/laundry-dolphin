@@ -18,17 +18,17 @@ exports.homeRender = (req,res) => {
   const sql = "SELECT * FROM jenis_paket";
 
   // execute the query
-  connection.query(sql, (err, results) => {
-    if (err) {
-      throw err;
-    } else {
-      //console.log(results); //💢just to make sure the code is works!💢
-      res.render("home", {
-        jenisPaket: results,
-        data_identity: myData,
-        id_user: req.session.id_user
-      });
-    }
-  });
-    // res.render('home');
+  // connection.query(sql, (err, results) => {
+  //   if (err) {
+  //     throw err;
+  //   } else {
+  //     //console.log(results); //💢just to make sure the code is works!💢
+  //     res.render("home", {
+  //       jenisPaket: results,
+  //       data_identity: myData,
+  //       id_user: req.session.id_user
+  //     });
+  //   }
+  // });
+    res.render('home');
 }
