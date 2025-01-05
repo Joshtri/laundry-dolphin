@@ -1,7 +1,13 @@
-import React from "react";
-import logo from "../../assets/dl-logo.png"; // Pastikan Anda mengganti logo.png dengan path logo Anda
+import React, { useState } from "react";
+import logo from "../../assets/dl-logo.png";
 
 const Navbar = () => {
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <header className="bg-blue-500 text-white shadow-md sticky top-0 z-50">
       <nav className="container mx-auto flex justify-between items-center p-4">
@@ -11,25 +17,37 @@ const Navbar = () => {
           <h1 className="text-lg font-bold">Dolphin Laundry</h1>
         </div>
 
-        {/* Menu Items */}
+        {/* Menu Items for Desktop */}
         <ul className="hidden md:flex space-x-8 text-sm font-medium">
-          <li><a href="#home" className="hover:text-yellow-300">Home</a></li>
-          <li><a href="#about" className="hover:text-yellow-300">About</a></li>
-          <li><a href="#location" className="hover:text-yellow-300">Location</a></li>
-          <li><a href="#feedback" className="hover:text-yellow-300">Feedback</a></li>
+          <li>
+            <a href="#home" className="hover:text-yellow-300">
+            Beranda
+            </a>
+          </li>
+          <li>
+            <a href="#services" className="hover:text-yellow-300">
+              Layanan Kami
+            </a>
+          </li>
+          <li>
+            <a href="#location" className="hover:text-yellow-300">
+              Lokasi
+            </a>
+          </li>
+          <li>
+            <a href="#contact-us" className="hover:text-yellow-300">
+            Kontak Kami
+            </a>
+          </li>
         </ul>
-
-        {/* Join Now Button */}
-        {/* <button className="hidden md:block bg-yellow-400 px-4 py-2 rounded hover:bg-yellow-500">
-          Join Now
-        </button> */}
 
         {/* Mobile Menu Button */}
         <button
           className="md:hidden flex items-center text-white focus:outline-none"
           type="button"
-          aria-expanded="false"
+          aria-expanded={isMobileMenuOpen}
           aria-label="Toggle navigation"
+          onClick={toggleMobileMenu}
         >
           <svg
             className="w-6 h-6"
@@ -49,17 +67,48 @@ const Navbar = () => {
       </nav>
 
       {/* Mobile Menu */}
-      <div className="md:hidden bg-blue-600 text-white">
-        <ul className="space-y-2 text-center py-4">
-          <li><a href="#home" className="block hover:text-yellow-300">Beranda</a></li>
-          <li><a href="#about" className="block hover:text-yellow-300">Tentang</a></li>
-          <li><a href="#location" className="block hover:text-yellow-300">Location</a></li>
-          <li><a href="#feedback" className="block hover:text-yellow-300">Feedback</a></li>
-          {/* <li>
-            <button className="bg-yellow-400 px-4 py-2 rounded hover:bg-yellow-500">
-              Join Now
-            </button>
-          </li> */}
+      <div
+        className={`md:hidden bg-blue-600 text-white ${
+          isMobileMenuOpen ? "block" : "hidden"
+        }`}
+      >
+        <ul className="space-y-2 py-4">
+          <li>
+            <a
+              href="#home"
+              className="block text-left pl-4 hover:text-yellow-300"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Beranda
+            </a>
+          </li>
+          <li>
+            <a
+              href="#services"
+              className="block text-left pl-4 hover:text-yellow-300"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Layanan Kami
+            </a>
+          </li>
+          <li>
+            <a
+              href="#location"
+              className="block text-left pl-4 hover:text-yellow-300"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Lokasi
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contact-us"
+              className="block text-left pl-4 hover:text-yellow-300"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Kontak Kami
+            </a>
+          </li>
         </ul>
       </div>
     </header>
