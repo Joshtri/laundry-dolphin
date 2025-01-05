@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import Layout from './Layout'
 import Hero from '../components/Home/Hero'
 import Services from '../components/Home/Services'
@@ -8,6 +8,10 @@ import Location from '../components/Home/Location'
 import Pricelist from '../components/Home/PriceList'
 import ContactUs from '../components/Home/ContactUs'
 
+/**
+ * Renders the home page of the website.
+ * @returns {JSX.Element} The home page component.
+ */
 const HomePage = () => {
   return (
     <Layout>
