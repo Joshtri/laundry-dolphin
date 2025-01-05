@@ -101,36 +101,46 @@ const Hero = () => {
             </svg>
         </div>
 
-{/* Gelombang Bawah */}
-<div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-  {/* Gelombang Pertama */}
-  <svg
-    className="relative block w-full"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 1440 320"
-  >
-    <path
-      fill="#6dc1de" // Warna biru lebih terang
-      fillOpacity="1"
-      d="M0,192L48,181.3C96,171,192,149,288,154.7C384,160,480,192,576,213.3C672,235,768,245,864,213.3C960,181,1056,107,1152,90.7C1248,75,1344,117,1392,138.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-    ></path>
-  </svg>
+        {/* Gelombang Bawah */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+          {/* Gelombang Pertama */}
+          <svg
+            className="relative block w-full"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
+          >
+            <path
+              fill="#6dc1de" // Warna biru lebih terang
+              fillOpacity="1"
+              d="M0,192L48,181.3C96,171,192,149,288,154.7C384,160,480,192,576,213.3C672,235,768,245,864,213.3C960,181,1056,107,1152,90.7C1248,75,1344,117,1392,138.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            ></path>
+          </svg>
 
-  {/* Gelombang Kedua */}
-  <svg
-    className="absolute block w-full top-8" // Geser ke bawah dengan top-8
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 1440 320"
-  >
-    <path
-      fill="#1E3A8A" // Warna lebih gelap dari gelombang pertama
-      fillOpacity="1"
-      d="M0,224L48,213.3C96,203,192,181,288,176C384,171,480,181,576,186.7C672,192,768,192,864,165.3C960,139,1056,85,1152,69.3C1248,53,1344,75,1392,85.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-    ></path>
-  </svg>
-</div>
+          {/* Gelombang Kedua */}
+          <svg
+            className="absolute block w-full top-8" // Geser ke bawah dengan top-8
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
+          >
+            <path
+              fill="#1E3A8A" // Warna lebih gelap dari gelombang pertama
+              fillOpacity="1"
+              d="M0,224L48,213.3C96,203,192,181,288,176C384,171,480,181,576,186.7C672,192,768,192,864,165.3C960,139,1056,85,1152,69.3C1248,53,1344,75,1392,85.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            ></path>
+          </svg>
+        </div>
 
-        
+        {/* Bubble Animations */}
+        <div className="bubble bubble-1"></div>
+        <div className="bubble bubble-2"></div>
+        <div className="bubble bubble-3"></div>
+        <div className="bubble bubble-4"></div>
+        <div className="bubble bubble-5"></div>
+        <div className="bubble bubble-6"></div>
+        <div className="bubble bubble-7"></div>
+        <div className="bubble bubble-8"></div>
+        <div className="bubble bubble-9"></div>
+        <div className="bubble bubble-10"></div>
 
     </section>
   );
