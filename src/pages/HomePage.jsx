@@ -7,6 +7,7 @@ import Testimonials from "../components/Home/Testimonials";
 import Location from "../components/Home/Location";
 import Pricelist from "../components/Home/PriceList";
 import ContactUs from "../components/Home/ContactUs";
+import FloatingWhatsApp from "../components/FloatingWhatsApp";
 
 const HomePage = () => {
   return (
@@ -32,6 +33,9 @@ const HomePage = () => {
       <section id="contact-us">
         <ContactUs />
       </section>
+
+      <FloatingWhatsApp /> {/* Tambahkan komponen tombol WhatsApp */}
+
     </Layout>
   );
 };
