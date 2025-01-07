@@ -12,6 +12,17 @@ const Pricelist = () => {
       items: [
         { name: "Laundry", price: "Rp 12.000 / Kg (di bawah 10 Kg)" },
         { name: "Paket Hemat", price: "Rp 11.000 / Kg (di atas 10 Kg)" },
+        { name: "Paket Hemat", price: "Rp 11.000 / Kg (di atas 10 Kg)" },
+        { name: "Taplak Meja Besar", price: "Rp 20.000 / Kg" },
+        { name: "Taplak Meja Kecil", price: "Rp 17.000 / Kg" },
+        { name: "Karpet Besar", price: "Rp 20.000 / Kg" },
+        { name: "Karpet Kecil", price: "Rp 17.000 / Kg" },
+        { name: "Setrika Saja", price: "Rp 9.000 / Kg" },
+        { name: "Cuci Lembab", price: "Rp 6.500 / Kg" },
+        { name: "Cuci Lipat", price: "Rp 9.000 / Kg" },
+        { name: "Sepatu", price: "Rp 20.000 / psg" },
+        { name: "Bantal Guling & Kepala", price: "Rp 20.000" },
+        { name: "Boneka", price: "tergantung ukuran" },
       ],
     },
     {
@@ -22,13 +33,8 @@ const Pricelist = () => {
         { name: "Express", price: "Rp 25.000 / Kg (24 Jam)" },
         { name: "Super Express", price: "Rp 35.000 / Kg (12 Jam)" },
         { name: "Super Duper Express", price: "Rp 45.000 / Kg (3 Jam)" },
-        { name: "Setrika Saja", price: "Rp 9.000 / Kg" },
-        { name: "Cuci Lembab", price: "Rp 6.500 / Kg" },
-        { name: "Cuci Lipat", price: "Rp 9.000 / Kg" },
-        { name: "Setrika Antri", price: "Rp 11.000 / Kg" },
-        { name: "Sepatu", price: "Rp 20.000 / psg" },
-        { name: "Bantal Guling & Kepala", price: "Rp 20.000" },
-        { name: "Boneka", price: "tergantung ukuran" },
+        { name: "Setrika Kilat", price: "Rp 11.000 / Kg" },
+
       ],
     },
     {
