@@ -30,7 +30,7 @@ const Location = () => {
                 Dolphin Laundry & Dry Cleaning berada di tempat strategis yang
                 berada di sekitaran pemukiman warga.
               </p>
-              <p className="mt-4 font-semibold">Jam Buka: 06.00 AM - 22.00 PM</p>
+              <p className="mt-4 font-semibold">Jam Buka: 05.45 AM - 22.00 PM</p>
               <button className="mt-4 bg-yellow-400 px-4 py-2 rounded text-white hover:bg-yellow-500">
                 <a href="https://goo.gl/maps/Tu5ijHJKQZAwYQiA6">
                     Ke Lokasi Laundry
