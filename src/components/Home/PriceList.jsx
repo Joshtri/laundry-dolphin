@@ -27,9 +27,9 @@ const Pricelist = () => {
     {
       category: "Layanan Khusus",
       icon: <FaLeaf />,
-      description: "Paket spesial untuk kebutuhan tertentu seperti setrika saja atau laundry khusus.",
+      description: "Paket spesial untuk kebutuhan tertentu seperti setrika kilat atau laundry khusus.",
       items: [
-        { name: "Setrika Saja", price: "Rp 9.000 / Kg" },
+        { name: "Setrika Kilat", price: "Rp 9.000 / Kg" },
         { name: "Cuci Lembab", price: "Rp 6.500 / Kg" },
         { name: "Cuci Lipat", price: "Rp 9.000 / Kg" },
         { name: "Setrika Antri", price: "Rp 11.000 / Kg" },
@@ -59,15 +59,15 @@ const Pricelist = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-50 flex flex-col items-center">
-      <h2 className="text-3xl font-bold text-blue-500 mb-10">
+    <section className="py-10 bg-gray-50 flex flex-col items-center">
+      <h2 className="text-3xl font-bold text-blue-500 mb-6 text-center">
         Daftar Harga & Layanan
       </h2>
 
       {/* Navigation Buttons */}
-      <div className="flex justify-center space-x-4 mb-10">
+      <div className="flex flex-wrap justify-center space-x-2 mb-6">
         <button
-          className={`flex items-center space-x-2 px-4 py-2 rounded-lg text-white ${
+          className={`flex items-center space-x-2 px-4 py-2 rounded-lg text-white mb-2 ${
             activeCategory === "Show All"
               ? "bg-blue-500"
               : "bg-gray-300 hover:bg-blue-400"
@@ -80,7 +80,7 @@ const Pricelist = () => {
         {pricelist.map((category, index) => (
           <button
             key={index}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-lg text-white ${
+            className={`flex items-center space-x-2 px-4 py-2 rounded-lg text-white mb-2 ${
               activeCategory === category.category
                 ? "bg-blue-500"
                 : "bg-gray-300 hover:bg-blue-400"
@@ -95,10 +95,9 @@ const Pricelist = () => {
 
       {/* Pricelist Items */}
       <div className="flex justify-center w-full">
-        <div className="w-full max-w-2xl">
+        <div className="w-full max-w-md md:max-w-2xl">
           <div
-            className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300"
-            style={{ margin: "0 auto" }}
+            className="bg-white p-6 md:p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300"
           >
             {pricelist
               .filter(
