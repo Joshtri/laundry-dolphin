@@ -1,4 +1,3 @@
-// FloatingWhatsApp.jsx
 import { useState } from "react";
 import { FaWhatsapp, FaTimes } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
@@ -16,13 +15,22 @@ const FloatingWhatsApp = () => {
 
   return (
     <>
-      <button
+      <motion.button
         onClick={openModal}
-        className="fixed bottom-6 right-6 bg-green-500 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:scale-110 hover:shadow-2xl transition-transform"
+        className="fixed bottom-6 right-6 bg-green-500 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:scale-110 hover:shadow-2xl transition-transform z-50"
         aria-label="Hubungi kami via WhatsApp"
+        style={{ zIndex: 9999 }} // Ensure the floating button is on top
+        animate={{
+          y: [0, -10, 0], // Keyframes for the floating effect
+        }}
+        transition={{
+          duration: 1.5,
+          repeat: Infinity,
+          repeatType: "loop",
+        }}
       >
         <FaWhatsapp size={28} />
-      </button>
+      </motion.button>
       
       {/* Modal Dialog */}
       <AnimatePresence>
