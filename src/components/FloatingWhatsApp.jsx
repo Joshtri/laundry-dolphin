@@ -50,14 +50,14 @@ const FloatingWhatsApp = () => {
               <h2 className="text-xl font-bold mb-4">Pilih Nomor WhatsApp</h2>
               <button
                 className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 w-full mb-2 flex items-center justify-center"
-                onClick={() => handleWhatsAppClick('+6281529500130')}
+                onClick={() => handleWhatsAppClick('+6282144500030')}
               >
                 <FaWhatsapp className="mr-2 text-lg" />
                 Hubungi Nomor Pertama
               </button>
               <button
                 className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 w-full flex items-center justify-center"
-                onClick={() => handleWhatsAppClick('+6282144500030')}
+                onClick={() => handleWhatsAppClick('+6281529500130')}
               >
                 <FaWhatsapp className="mr-2 text-lg" />
                 Hubungi Nomor Kedua

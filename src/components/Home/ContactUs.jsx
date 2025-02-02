@@ -10,8 +10,8 @@ const ContactUs = () => {
       name: "WhatsApp",
       icon: <FaWhatsapp className="text-green-500 text-3xl" />,
       options: [
-        { label: "Nomor Pertama", link: "https://wa.me/+6281529500130" },
-        { label: "Nomor Kedua", link: "https://wa.me/+6282144500030" },
+        { label: "Nomor Pertama", link: "https://wa.me/+6282144500030" },
+        { label: "Nomor Kedua", link: "https://wa.me/+6281529500130" },
       ],
     },
     {
