@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { FaTshirt, FaSoap, FaHandSparkles } from "react-icons/fa";
 
 const Services = () => {
