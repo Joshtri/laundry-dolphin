@@ -4,7 +4,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear(); // Mendapatkan tahun saat ini secara dinamis
 
   return (
-    <footer className="bg-blue-500 text-white py-6">
+    <footer className="bg-blue-500 text-white py-7">
       <div className="container mx-auto px-4 text-center">
         <p className="text-lg font-semibold">Dolphin Laundry & Dry Cleaning Kupang</p>
         <p className="mt-2 text-sm">
