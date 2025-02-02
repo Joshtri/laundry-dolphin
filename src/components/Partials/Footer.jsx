@@ -6,9 +6,9 @@ const Footer = () => {
   return (
     <footer className="bg-blue-500 text-white py-6">
       <div className="container mx-auto px-4 text-center">
-        <p className="text-lg font-semibold">Dolphin Laundry & Dry Cleaning</p>
+        <p className="text-lg font-semibold">Dolphin Laundry & Dry Cleaning Kupang</p>
         <p className="mt-2 text-sm">
-          © {currentYear} Dolphin Laundry. All rights reserved.
+          © {currentYear} Dolphin Laundry & Dry Cleaning Kupang. All rights reserved.
         </p>
         <div className="flex justify-center space-x-4 mt-4">
           <a

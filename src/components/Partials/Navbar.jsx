@@ -14,7 +14,7 @@ const Navbar = () => {
         {/* Logo Section */}
         <div className="flex items-center space-x-2">
           <img src={logo} alt="Dolphin Laundry Logo" className="h-16 w-20" />
-          <h1 className="text-lg font-bold">Dolphin Laundry</h1>
+          <h1 className="text-lg font-bold">Dolphin Laundry & Dry Cleaning Kupang</h1>
         </div>
 
         {/* Menu Items for Desktop */}
