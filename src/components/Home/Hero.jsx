@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaTimes } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import "../../assets/css/bubble.css";
 
 const Hero = () => {
   const [currentText, setCurrentText] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false); // State untuk modal
   const texts = ["Dolphin Laundry", "Dolphin Dry Cleaning"];
 
   useEffect(() => {
@@ -13,6 +14,14 @@ const Hero = () => {
     }, 3000); // Ganti teks setiap 3 detik
     return () => clearInterval(interval);
   }, []);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
+  const handleWhatsAppClick = (phoneNumber) => {
+    window.open(`https://wa.me/${phoneNumber}?text=Halo%20Dolphin%20Laundry,%20saya%20ingin%20memesan%20layanan%20laundry`, '_blank');
+    closeModal();
+  };
 
   return (
     <section className="relative bg-blue-500 text-white overflow-hidden"
@@ -40,7 +49,7 @@ const Hero = () => {
       </div>
 
       {/* Konten Teks */}
-      <div className="container mx-auto py-20 text-center relative z-10">
+      <div className="container mx-auto py-20 text-center relative z-10 px-4">
         <motion.h1
           className="text-4xl font-bold"
           initial={{ opacity: 0, y: -20 }}
@@ -72,10 +81,8 @@ const Hero = () => {
         >
           Layanan laundry segar, cepat, dan dapat diandalkan untuk Anda!
         </motion.p>
-        <motion.a
-          href="https://wa.me/<your-phone-number>?text=Halo%20Dolphin%20Laundry,%20saya%20ingin%20memesan%20layanan%20laundry"
-          target="_blank"
-          rel="noopener noreferrer"
+        <motion.button
+          onClick={openModal}
           className="mt-6 bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 flex items-center justify-center w-max mx-auto shadow-md transition duration-300"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -83,65 +90,77 @@ const Hero = () => {
         >
           <FaWhatsapp className="mr-2 text-lg" />
           Pesan Sekarang via WhatsApp
-        </motion.a>
+        </motion.button>
       </div>
+
+      {/* Modal Dialog */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="bg-white p-4 rounded-lg shadow-lg max-w-lg w-full mx-4"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+            >
+              <h2 className="text-xl text-black font-bold mb-4">Pilih Nomor WhatsApp</h2>
+              <button
+                className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 w-full mb-2 flex items-center justify-center"
+                onClick={() => handleWhatsAppClick('+6281529500130')}
+              >
+                <FaWhatsapp className="mr-2 text-lg" />
+                Hubungi Nomor Pertama
+              </button>
+              <button
+                className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 w-full flex items-center justify-center"
+                onClick={() => handleWhatsAppClick('+6282144500030')}
+              >
+                <FaWhatsapp className="mr-2 text-lg" />
+                Hubungi Nomor Kedua
+              </button>
+              <button
+                className="mt-4 bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 flex mx-auto items-center transition duration-300"
+                onClick={closeModal}
+              >
+                <FaTimes className="mr-2 text-lg" />
+                Batal
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Gelombang Bawah */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-            <svg
-                className="relative block w-full"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 1440 320"
-            >
-                <path
-                fill="#2563EB" // Warna biru lebih gelap (Tailwind: bg-blue-600)
-                fillOpacity="1"
-                d="M0,192L48,181.3C96,171,192,149,288,154.7C384,160,480,192,576,213.3C672,235,768,245,864,213.3C960,181,1056,107,1152,90.7C1248,75,1344,117,1392,138.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-                ></path>
-            </svg>
-        </div>
+        <svg
+          className="relative block w-full"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+        >
+          <path
+            fill="#2563EB"
+            fillOpacity="1"
+            d="M0,192L48,181.3C96,171,192,149,288,154.7C384,160,480,192,576,213.3C672,235,768,245,864,213.3C960,181,1056,107,1152,90.7C1248,75,1344,117,1392,138.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
 
-        {/* Gelombang Bawah */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-          {/* Gelombang Pertama */}
-          <svg
-            className="relative block w-full"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1440 320"
-          >
-            <path
-              fill="#6dc1de" // Warna biru lebih terang
-              fillOpacity="1"
-              d="M0,192L48,181.3C96,171,192,149,288,154.7C384,160,480,192,576,213.3C672,235,768,245,864,213.3C960,181,1056,107,1152,90.7C1248,75,1344,117,1392,138.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-            ></path>
-          </svg>
-
-          {/* Gelombang Kedua */}
-          <svg
-            className="absolute block w-full top-8" // Geser ke bawah dengan top-8
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1440 320"
-          >
-            <path
-              fill="#1E3A8A" // Warna lebih gelap dari gelombang pertama
-              fillOpacity="1"
-              d="M0,224L48,213.3C96,203,192,181,288,176C384,171,480,181,576,186.7C672,192,768,192,864,165.3C960,139,1056,85,1152,69.3C1248,53,1344,75,1392,85.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-            ></path>
-          </svg>
-        </div>
-
-        {/* Bubble Animations */}
-        <div className="bubble bubble-1"></div>
-        <div className="bubble bubble-2"></div>
-        <div className="bubble bubble-3"></div>
-        <div className="bubble bubble-4"></div>
-        <div className="bubble bubble-5"></div>
-        <div className="bubble bubble-6"></div>
-        <div className="bubble bubble-7"></div>
-        <div className="bubble bubble-8"></div>
-        <div className="bubble bubble-9"></div>
-        <div className="bubble bubble-10"></div>
-
+      {/* Bubble Animations */}
+      <div className="bubble bubble-1"></div>
+      <div className="bubble bubble-2"></div>
+      <div className="bubble bubble-3"></div>
+      <div className="bubble bubble-4"></div>
+      <div className="bubble bubble-5"></div>
+      <div className="bubble bubble-6"></div>
+      <div className="bubble bubble-7"></div>
+      <div className="bubble bubble-8"></div>
+      <div className="bubble bubble-9"></div>
+      <div className="bubble bubble-10"></div>
     </section>
   );
 };
