@@ -61,7 +61,7 @@ const Hero = () => {
             <AnimatePresence mode="wait">
               <motion.span
                 key={currentText}
-                className="text-yellow-400"
+                className={currentText === 1 ? "text-yellow-400 text-3xl" : "text-yellow-400"}
                 initial={{ rotateX: 90, opacity: 0 }}
                 animate={{ rotateX: 0, opacity: 1 }}
                 exit={{ rotateX: -90, opacity: 0 }}
